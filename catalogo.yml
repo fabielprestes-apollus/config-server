@@ -1,0 +1,44 @@
+server:
+   port: ${PORT:8092}
+   
+info:
+   id: ${spring.application.name}
+
+apollus:
+   tenant:
+      habilitado: false
+   
+spring:
+   datasource:
+      platform: postgres
+      driverClassName: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/apollus-utils
+      username: postgres
+      password: root
+      type: com.zaxxer.hikari.HikariDataSource
+      initialSize: 1
+      min-idle: 1
+      max-idle: 0
+      max-active: 5
+      testOnBorrow: true
+      validationQuery: SELECT 1
+      timeBetweenEvictionRunsMillis: 34000
+      minEvictableIdleTimeMillis: 55000
+      removeAbandoned: true
+      hikari:
+         minimum-idle: 1
+         maximum-pool-size: 1
+         connection-timeout: 60000
+   jpa:
+      database: POSTGRESQL
+      show-sql: true
+      hibernate:
+         ddl-auto: none
+      properties:
+         hibernate:
+            jdbc:
+               lob:
+                  non_contextual_creation: true
+            multiTenancy: DATABASE
+            multi_tenant_connection_provider: br.com.apollus.catalogo.CATDataSourceBasedMultiTenantConnectionProviderImpl
+            tenant_identifier_resolver: br.com.apollus.catalogo.CATTenantIdentifierResolver
