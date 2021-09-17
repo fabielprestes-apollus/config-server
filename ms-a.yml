@@ -1,9 +1,9 @@
 server:
-   port: 8081
+   port: 8082
    servlet:
-      context-path: /ms-a
+      context-path: /ms-b
 info:
-   id: ms-a
+   id: ms-b
    
 prop:
-   nome: microservico-a
+   nome: microservico-b
