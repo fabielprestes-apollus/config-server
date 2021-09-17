@@ -1,0 +1,8 @@
+server:
+   port: 8081
+   
+info:
+   id: ms-a
+   
+prop:
+   nome: microservico-a
